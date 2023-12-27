@@ -35,7 +35,7 @@ class AuthService {
         return userAccount;
       }
     } catch (error) {
-      console.log('Appwrite service :: createAccount :: error', error);
+      console.log('Appwrite auth service :: createAccount :: error', error);
     }
   }
 
@@ -44,7 +44,7 @@ class AuthService {
     try {
       return await this.account.createEmailSession(email, password);
     } catch (error) {
-      console.log('Appwrite service :: login :: error', error);
+      console.log('Appwrite auth service :: login :: error', error);
     }
 
     // If login fails, we return null
@@ -56,7 +56,7 @@ class AuthService {
     try {
       return await this.account.get();
     } catch (error) {
-      console.log('Appwrite service :: getCurrentUser :: error', error);
+      console.log('Appwrite auth service :: getCurrentUser :: error', error);
     }
 
     // If we cannot fetch the current user data, return null
@@ -68,7 +68,7 @@ class AuthService {
     try {
       await this.account.deleteSessions();
     } catch (error) {
-      console.log('Appwrite service :: logout :: error', error);
+      console.log('Appwrite auth service :: logout :: error', error);
     }
   }
 }
